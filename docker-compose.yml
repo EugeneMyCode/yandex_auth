@@ -1,0 +1,18 @@
+version: "3"
+
+
+services:
+
+    test:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        image: pytest_yandex_run
+        container_name: "yandex_auth"
+        environment:
+            URL: https://passport.yandex.ru/
+            PHONE: '+79999990099'
+            EMAIL: mrtwister@mail.ru
+            LOGIN: mrtwister445
+        volumes:
+            - .:/yandex_auth/
