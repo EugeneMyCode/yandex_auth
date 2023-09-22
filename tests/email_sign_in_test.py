@@ -14,3 +14,5 @@ def test_email_sign_in(driver):
 
     status = page.check_code_input_is_here()
     assert status == True
+
+    print("\nСтраница регистрации через email работает")

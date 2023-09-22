@@ -18,3 +18,5 @@ def test_vk_sign_in(driver):
     # Проверка наличия поля для ввода логина/почты в ВК
     vk_login_field = page.check_vk_login_field_is_here()
     assert vk_login_field == True
+
+    print("\nАвторизация через vk работает")

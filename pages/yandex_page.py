@@ -21,7 +21,7 @@ class YandexPage(BasePage):
     VK_LOGIN = (By.NAME, "login")
     REG = (By.ID, "passp:exp-register")
     REG_FOR_ME = (By.CSS_SELECTOR, "li:nth-child(1) button:nth-child(1)")
-    REG_BUTTON = (By.CSS_SELECTOR, "button[type='submit']")
+    REG_PHONE = (By.CSS_SELECTOR, "#passp-field-phone")
 
     url = f'{os.getenv("URL")}'
 
@@ -61,9 +61,9 @@ class YandexPage(BasePage):
         """"Проверка доступа поля для ввода пароля"""
         return self.find_element(self.PASSWORD_INPUT).is_enabled()
     
-    def send_password(self, password):
+    def send_password(self):
         """"Ввод пароля в соответствующее поле"""
-        self.find_element(self.PASSWORD_INPUT).send_keys(password)
+        self.find_element(self.PASSWORD_INPUT).send_keys(f'{os.getenv("PASSWORD")}')
 
     def check_password_error_is_here(self):
         """"Проверка ошибки при авторизации с несуществующего аккаунта"""
@@ -85,6 +85,6 @@ class YandexPage(BasePage):
         """"Клик по всплывающей кнопке 'Для себя'"""
         self.find_element(self.REG_FOR_ME).click()
 
-    def check_reg_button_is_here(self):
-        """"Проверка доступа кнопки 'Зарегистрироваться'"""
-        return self.find_element(self.REG_BUTTON).is_enabled()
+    def check_reg_phone_is_here(self):
+        """"Проверка доступа ввода телефона для регистрации"""
+        return self.find_element(self.REG_PHONE).is_enabled()

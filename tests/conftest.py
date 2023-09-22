@@ -5,14 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from external_data import load_external_data
 
-
-@pytest.fixture
-def test_data():
-    """"Фикстура для предоставления тестовых данных"""
-    data = load_external_data()
-    return data
 
 @pytest.fixture(scope="function")
 def driver():

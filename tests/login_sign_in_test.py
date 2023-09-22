@@ -3,7 +3,7 @@
 from pages.yandex_page import YandexPage
 
 
-def test_login_sign_in(driver, test_data):
+def test_login_sign_in(driver):
     """Поле ввода пароля находится на странице?"""
     page = YandexPage(driver)
 
@@ -15,10 +15,11 @@ def test_login_sign_in(driver, test_data):
     status = page.check_password_input_is_here()
     assert status == True
 
-    # Вводим в поле пароль из тестовых данных
-    page.send_password(test_data[0]['website'])
+    page.send_password()
     page.click_sign_in_button()
     
     # Доп. проверка, что аккаунта с таким логином/паролем не существует
     error = page.check_password_error_is_here()
     assert error == True
+
+    print("\nСтраница входа работает и нельзя войти под несуществующим аккаунтом")

@@ -15,3 +15,5 @@ def test_phone_sign_in(driver):
 
     status = page.check_code_input_is_here()
     assert status == True
+
+    print("\nСтраница входа через телефон работает")

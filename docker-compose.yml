@@ -14,5 +14,6 @@ services:
             PHONE: '+79999990099'
             EMAIL: mrtwister@mail.ru
             LOGIN: mrtwister445
+            PASSWORD: example_pass
         volumes:
             - .:/yandex_auth/

@@ -13,4 +13,4 @@ WORKDIR /yandex_auth/
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-CMD python3 -u -m pytest -s --junitxml=result/test-result.xml tests/
+CMD python3 -u -m pytest --html=report.html tests/

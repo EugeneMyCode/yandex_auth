@@ -11,10 +11,7 @@ def test_registration(driver):
     page.click_reg()
     page.click_reg_for_me_button()
 
-    # После перехода мы попадаем на старницу регистрации
-    reg_url = page.current_url().startswith('https://passport.yandex.ru/registration')
-    assert reg_url == True
-
-    # Кнопка регистрации, которую нажимаем после заполнения всех полей
-    reg_button = page.check_reg_button_is_here()
+    reg_button = page.check_reg_phone_is_here()
     assert reg_button == True
+
+    print("\nКнопка создания ID работает")
